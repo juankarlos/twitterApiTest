@@ -27,7 +27,8 @@ import com.twitter.hbc.httpclient.auth.OAuth1;
 
 /**
  * Connects to Twitter API, reads public messages and get some statistics.
- * @author Juan Carlos Araya Navarro, juank.araya@gmail.com .2019
+ * @author Juan Carlos Araya Navarro, juank.araya@gmail.com 
+ * 2019
  *
  */
 public class TwitterAPIExample {
