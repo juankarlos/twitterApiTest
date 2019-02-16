@@ -13,8 +13,6 @@
 
 package com.twitter.hbc.example;
 
-import java.awt.event.KeyEvent;
-import java.util.Scanner;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -27,6 +25,11 @@ import com.twitter.hbc.httpclient.BasicClient;
 import com.twitter.hbc.httpclient.auth.Authentication;
 import com.twitter.hbc.httpclient.auth.OAuth1;
 
+/**
+ * Connects to Twitter API, reads public messages and get some statistics.
+ * @author Juan Carlos Araya Navarro, juank.araya@gmail.com .2019
+ *
+ */
 public class TwitterAPIExample {
 
 	private Statistics stats;
@@ -91,8 +94,14 @@ public class TwitterAPIExample {
 
 	public static void main(String[] args) {
 		try {
-			System.out.println("The feeds will be reading until you press ESCAPE.");
-			TwitterAPIExample test = new TwitterAPIExample(1000);			
+			System.out.println("Will processed the number of values passed as parameter");
+			int count = 0;
+			if (args.length == 0)
+				count = 1000;	// 1000 messages as default;
+			else
+				count = Integer.parseInt(args[0]);
+			
+			TwitterAPIExample test = new TwitterAPIExample(count);			
 			test.run();
 			test.getStatistics();
 		} catch (InterruptedException e) {
